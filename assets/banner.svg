@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#080c14" />
+    </linearGradient>
+
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Filter for soft glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .bg-grid { stroke: rgba(255, 255, 255, 0.04); stroke-width: 1; }
+      .data-stream { stroke-dasharray: 6, 12; animation: flow 20s linear infinite; }
+      .pulse-circle { animation: pulse 4s ease-in-out infinite alternate; }
+      .float-pill { animation: float 6s ease-in-out infinite alternate; }
+      .float-pill-reverse { animation: float 7s ease-in-out infinite alternate-reverse; }
+
+      @keyframes flow {
+        from { stroke-dashoffset: 200; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.3; }
+        100% { transform: scale(1.15); opacity: 0.6; }
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-8px); }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" />
+
+  <!-- Animated Glowing Orbs (in Background) -->
+  <g opacity="0.7">
+    <circle cx="150" cy="100" r="180" fill="url(#glowGrad1)" class="pulse-circle" />
+    <circle cx="1050" cy="320" r="220" fill="url(#glowGrad2)" class="pulse-circle" />
+  </g>
+
+  <!-- Tech Grid Overlay -->
+  <g class="bg-grid">
+    <line x1="0" y1="70" x2="1200" y2="70" />
+    <line x1="0" y1="140" x2="1200" y2="140" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+    <line x1="0" y1="350" x2="1200" y2="350" />
+    <line x1="150" y1="0" x2="150" y2="420" />
+    <line x1="300" y1="0" x2="300" y2="420" />
+    <line x1="450" y1="0" x2="450" y2="420" />
+    <line x1="600" y1="0" x2="600" y2="420" />
+    <line x1="750" y1="0" x2="750" y2="420" />
+    <line x1="900" y1="0" x2="900" y2="420" />
+    <line x1="1050" y1="0" x2="1050" y2="420" />
+  </g>
+
+  <!-- Dynamic Circuit / Browser Flow Streams -->
+  <g stroke="url(#brandGrad)" stroke-width="1.5" fill="none" opacity="0.35">
+    <path d="M 50,370 L 250,370 L 320,310 L 550,310" class="data-stream" />
+    <path d="M 650,310 L 880,310 L 950,370 L 1150,370" class="data-stream" />
+    <path d="M 100,50 L 280,50 L 350,110 L 520,110" class="data-stream" />
+    <path d="M 680,110 L 850,110 L 920,50 L 1100,50" class="data-stream" />
+  </g>
+
+  <!-- Dynamic Visual Elements / Feature Pills (Subtle, Backgrounded) -->
+  <g class="float-pill" opacity="0.65">
+    <rect x="80" y="180" width="170" height="34" rx="17" fill="url(#nodeGrad)" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="98" cy="197" r="5" fill="#38bdf8" />
+    <text x="114" y="202" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">🌐 Headless Browser</text>
+  </g>
+
+  <g class="float-pill-reverse" opacity="0.65">
+    <rect x="950" y="180" width="170" height="34" rx="17" fill="url(#nodeGrad)" stroke="#c084fc" stroke-width="1" />
+    <circle cx="968" cy="197" r="5" fill="#c084fc" />
+    <text x="984" y="202" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">🤖 Autonomous Agents</text>
+  </g>
+
+  <!-- Main Foreground Content Area -->
+  <g>
+    <!-- Category Badge -->
+    <rect x="460" y="65" width="280" height="30" rx="15" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
+    <text x="600" y="85" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" text-anchor="middle">AWESOME CURATED LIST</text>
+
+    <!-- Main Title -->
+    <text x="600" y="160" fill="url(#brandGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle" filter="url(#glow)">
+      Awesome Browser Automation
+    </text>
+    <text x="600" y="210" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">
+      &amp; Semantic Web Agents
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="600" y="260" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" text-anchor="middle">
+      Curated Cloud Browser Infrastructure • Accessibility Tree Agents • AI DOM Scrapers • Testing Grids
+    </text>
+
+    <!-- Core Badges / Highlights -->
+    <g transform="translate(300, 310)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="130" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="65" y="20" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">⚡ Playwright &amp; CDP</text>
+
+      <!-- Pill 2 -->
+      <rect x="150" y="0" width="140" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="220" y="20" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">🧠 LLM / VLM Agents</text>
+
+      <!-- Pill 3 -->
+      <rect x="310" y="0" width="140" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="380" y="20" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">🛡️ Anti-Detect Stealth</text>
+
+      <!-- Pill 4 -->
+      <rect x="470" y="0" width="130" height="32" rx="16" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="535" y="20" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">📊 Cloud Runtimes</text>
+    </g>
+  </g>
+</svg>
